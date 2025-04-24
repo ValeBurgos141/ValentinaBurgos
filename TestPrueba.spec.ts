@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.use({ headless: false }); // Ensure the browser runs in visual mode
+//test.use({ headless: false }); // Ensure the browser runs in visual mode
 
 test('Navigate to Google and search for "Valentina Burgos Herrera"', async ({ page }) => {
   // Navigate to Google

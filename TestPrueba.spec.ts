@@ -5,7 +5,7 @@ export default defineConfig({
     headless: true, // Ensure headless mode is enabled
   },
 
-test('Navigate to Google and search for "Valentina Burgos Herrera"', async ({ page }) => {
+test('Navigate to Google and search for Valentina Burgos Herrera', async ({ page }) => {
     // Navigate to Google
     await page.goto('https://www.google.com');
 

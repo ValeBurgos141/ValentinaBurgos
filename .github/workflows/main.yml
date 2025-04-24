@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Chromium version
         run: |
-          npx playwright install chromium --version=<desired-chromium-version>
+           npx playwright install chromium --version=1080
 
       - name: Run Playwright tests
         run: |

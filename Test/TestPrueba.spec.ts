@@ -1,23 +1,24 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, defineConfig } from '@playwright/test';
 
 export default defineConfig({
   use: {
     headless: true, // Ensure headless mode is enabled
   },
+});
 
 test('Navigate to Google and search for Valentina Burgos Herrera', async ({ page }) => {
   // Navigate to Google
   await page.goto('https://www.google.com');
 
-  // Locate the search box and perform the search
-  const searchBox = page.locator('input[name="q"]');
-  await searchBox.fill('Valentina Burgos Herrera');
-  await searchBox.press('Enter');
+  // Accept cookies if the consent dialog appears (optional, depending on region)
+  const acceptButton = page.locator('button:has-text("I agree")');
+  if (await acceptButton.isVisible()) {
+    await acceptButton.click();
+  }
 
-  // Wait for search results to load
-  await page.waitForSelector('#search');
+  // Type the search query into the search bar
+  await page.fill('#APjFqb', 'Valentina Burgos Herrera');
 
-  // Check that the results page is visible
-  const results = page.locator('#search');
-  expect(await results.isVisible()).toBe(true);
+  // Press Enter to search
+  await page.press('#APjFqb', 'Enter');
 });

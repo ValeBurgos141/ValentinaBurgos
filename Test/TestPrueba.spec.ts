@@ -1,5 +1,11 @@
 import { test, expect } from '@playwright/test';
 
+export default defineConfig({
+  use: {
+    headless: true, // Ensure headless mode is enabled
+  },
+});
+
 //test.use({ headless: false }); // Ensure the browser runs in visual mode
 
 test('Navigate to Google and search for "Valentina Burgos Herrera"', async ({ page }) => {

@@ -26,6 +26,10 @@ jobs:
           cd Test
           npm install
 
+      - name: Install Chromium version
+        run: |
+          npx playwright install chromium --version=<desired-chromium-version>
+
       - name: Run Playwright tests
         run: |
           cd Test

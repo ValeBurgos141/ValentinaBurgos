@@ -33,4 +33,4 @@ jobs:
       - name: Run Playwright tests
         run: |
           cd Test
-          npx playwright test
+          xvfb-run npx playwright test

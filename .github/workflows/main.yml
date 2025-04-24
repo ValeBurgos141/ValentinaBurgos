@@ -22,7 +22,11 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Test
+          npm install
 
       - name: Run Playwright tests
-        run: npx playwright test TestPrueba.spec.ts
+        run: |
+          cd Test
+          npx playwright test TestPrueba.spec.ts

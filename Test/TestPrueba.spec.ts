@@ -1,30 +1,21 @@
-Here are the contents for the file: /Test/.github/workflows/playwright-tests.yml
+import { test, expect } from '@playwright/test';
 
-name: Playwright Tests
+test.use({ headless: false }); // Ensure the browser runs in visual mode
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+test('Navigate to Google and search for "Valentina Burgos Herrera"', async ({ page }) => {
+  // Navigate to Google
+  await page.goto('https://www.google.com');
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
+  // Accept cookies if the consent dialog appears (optional, depending on region)
+  const acceptButton = page.locator('button:has-text("I agree")');
+  if (await acceptButton.isVisible()) {
+    await acceptButton.click();
+  }
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  // Type the search query into the search bar
+  await page.fill('#APjFqb', 'Valentina Burgos Herrera');
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright tests
-        run: npx playwright test TestPrueba.spec.ts
+  // Press Enter to search
+  await page.press('#APjFqb', 'Enter');
+  await page.waitForTimeout(4000); 
+});

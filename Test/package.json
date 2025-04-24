@@ -1,0 +1,16 @@
+{
+  "name": "playwright-test-project",
+  "version": "1.0.0",
+  "description": "A project to run Playwright tests for Google search functionality.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

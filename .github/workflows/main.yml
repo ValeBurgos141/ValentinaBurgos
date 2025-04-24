@@ -33,4 +33,4 @@ jobs:
       - name: Run Playwright tests
         run: |
           cd Test
-          npx playwright test TestPrueba.spec.ts --headed=false
+          npx playwright test TestPrueba.spec.ts
